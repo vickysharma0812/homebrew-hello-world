@@ -13,6 +13,11 @@ class Helloworld < Formula
     system "cmake", "--install", "build"
   end
 
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura: "314d93af56b0fcbcd9be6881b89f6c7b2c55959802a6380c8c9f613ec286dd66"
+  end
+
   test do
     system "false"
   end
