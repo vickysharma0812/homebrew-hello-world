@@ -5,17 +5,17 @@ class Helloworld < Formula
   license "MIT"
   head "https://github.com/vickysharma0812/HelloWorld.git", branch: "main"
 
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura: "314d93af56b0fcbcd9be6881b89f6c7b2c55959802a6380c8c9f613ec286dd66"
+  end
+
   depends_on "cmake" => :build
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-  end
-
-  bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura: "314d93af56b0fcbcd9be6881b89f6c7b2c55959802a6380c8c9f613ec286dd66"
   end
 
   test do
